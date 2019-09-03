@@ -32,8 +32,4 @@ len(x)
 
 # Print all the values in x multiplied by 1000
 # YOUR CODE HERE
-print(
-    list(
-        map(lambda el: el * 1000, x)
-    )
-)
+print([n * 1000 for n in x])
