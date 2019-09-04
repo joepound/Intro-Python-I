@@ -23,7 +23,7 @@ import sys
 from calendar import TextCalendar
 from datetime import datetime
 
-ERROR_MSG = 'Invalid arguments (expected numbers in format "month [year]")'
+ERROR_MSG = 'Invalid arguments (expected numbers in format "[month] [year]")'
 START_DAY = 6  # Start weeks on Sunday
 
 console_args = sys.argv[1:]
