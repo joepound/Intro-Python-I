@@ -23,6 +23,7 @@ import sys
 from calendar import TextCalendar
 from datetime import datetime
 
+START_DAY = 6  # Start weeks on Sunday
 ERROR_MSG = 'Invalid arguments (expected numbers in format "month [year]")'
 
 try:
@@ -32,15 +33,15 @@ try:
         if len(sys.argv) == 3:
             month = sys.argv[1]
             year = sys.argv[2]
-            TextCalendar(6).prmonth(int(year), int(month))
+            TextCalendar(START_DAY).prmonth(int(year), int(month))
         elif len(sys.argv) == 2:
             month = sys.argv[1]
             year = datetime.now().year
-            TextCalendar(6).prmonth(year, int(month))
+            TextCalendar(START_DAY).prmonth(year, int(month))
         else:
             month = datetime.now().month
             year = datetime.now().year
-            TextCalendar(6).prmonth(year, month)
+            TextCalendar(START_DAY).prmonth(year, month)
     else:
         raise Exception("")
 except Exception as error:
