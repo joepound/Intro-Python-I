@@ -23,28 +23,26 @@ import sys
 from calendar import TextCalendar
 from datetime import datetime
 
-START_DAY = 6  # Start weeks on Sunday
 ERROR_MSG = 'Invalid arguments (expected numbers in format "month [year]")'
+START_DAY = 6  # Start weeks on Sunday
+
+console_args = sys.argv[1:]
 
 try:
-    # First system argument is the file being accessed (ex.: "14_cal.py"),
-    # so disregard it.
-    if len(sys.argv) < 4:
-        if len(sys.argv) == 3:
-            month = sys.argv[1]
-            year = sys.argv[2]
-            TextCalendar(START_DAY).prmonth(int(year), int(month))
-        elif len(sys.argv) == 2:
-            month = sys.argv[1]
-            year = datetime.now().year
-            TextCalendar(START_DAY).prmonth(year, int(month))
-        else:
-            month = datetime.now().month
-            year = datetime.now().year
-            TextCalendar(START_DAY).prmonth(year, month)
+    if len(console_args) == 0:
+        present_datetime = datetime.now()
+        month = present_datetime.month
+        year = present_datetime.year
+        TextCalendar(START_DAY).prmonth(year, month)
+    elif len(console_args) == 1:
+        month = console_args[0]
+        year = datetime.now().year
+        TextCalendar(START_DAY).prmonth(year, int(month))
+    elif len(console_args) == 2:
+        # pylint: disable=unbalanced-tuple-unpacking
+        month, year = console_args
+        TextCalendar(START_DAY).prmonth(int(year), int(month))
     else:
         raise Exception("")
 except Exception as error:
-    print(ERROR_MSG)
-    if error != "":
-        print(f"\nTrace:\n{error}")
+    print(ERROR_MSG if error.__str__() == "" else f"\nTrace:\n'{error}'")
