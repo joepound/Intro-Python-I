@@ -9,6 +9,8 @@ https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 # Print all the contents of the file, then close the file
 
 # YOUR CODE HERE
+
+# Assumes that the command is being run in the same directory as this file
 with open("foo.txt") as fooFile:
     for line in fooFile:
         print(line, end="")
@@ -24,12 +26,14 @@ print("\n")  # Line break to visually separate next output
 
 # YOUR CODE HERE
 
+# Assumes that the command is being run in the same directory as this file
 with open("bar.txt", "w") as barFile:
     barFile.write("Line One\n")
     barFile.write("Line Two\n")
     barFile.write("Line Three\n")
     barFile.close()
 
+# Assumes that the command is being run in the same directory as this file
 with open("bar.txt") as barFile:
     for line in barFile:
         print(line, end="")
