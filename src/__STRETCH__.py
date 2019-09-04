@@ -26,10 +26,16 @@ try:
         print(f"Number {num} is neither prime nor composite")
     else:
         """
+        To be used for ranges -> num + 1 to ensure that num is included.
+        Avoid repetitive invocations of len function or num + 1 operation.
+        """
+        sieve_size = num + 1
+
+        """
         A 'sieve' of numbers from 1 to n represented by an array of Booleans.
         1 is a placeholder for the array to make the indices even out.
         """
-        sieve = [True for i in range(num + 1)]
+        sieve = [True for i in range(sieve_size)]
 
         """
         This 'cursor' will be multiples of a prime.
@@ -43,7 +49,7 @@ try:
 
         """
         If cursor becomes greater than the number's square root, then it will
-        never be a multiple of it, so end the loop to skip useless iterations
+        never be a multiple of it, so end the loop to skip useless iterations.
         """
         while cursor ** 2 <= num and isPrime:
             # If value is True, then the number is prime
@@ -53,7 +59,7 @@ try:
                 multiples are composite. Marks the corresponding indices as
                 False to indicate this.
                 """
-                for i in range(cursor * 2, num + 1, cursor):
+                for i in range(cursor * 2, sieve_size, cursor):
                     if i == num:
                         isPrime = False
                         break
