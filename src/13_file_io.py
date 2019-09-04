@@ -9,7 +9,7 @@ https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files
 # Print all the contents of the file, then close the file
 
 # YOUR CODE HERE
-with open("src/foo.txt") as fooFile:
+with open("foo.txt") as fooFile:
     for line in fooFile:
         print(line, end="")
     fooFile.close()
@@ -24,13 +24,13 @@ print("\n")  # Line break to visually separate next output
 
 # YOUR CODE HERE
 
-with open("src/bar.txt", "w") as barFile:
+with open("bar.txt", "w") as barFile:
     barFile.write("Line One\n")
     barFile.write("Line Two\n")
     barFile.write("Line Three\n")
     barFile.close()
 
-with open("src/bar.txt") as barFile:
+with open("bar.txt") as barFile:
     for line in barFile:
         print(line, end="")
     barFile.close()
