@@ -15,8 +15,7 @@ import os
 
 # Print out the command line arguments in sys.argv, one per line:
 # YOUR CODE HERE
-for val in sys.argv:
-    print(val)
+print(*sys.argv, sep="\n")
 
 # Print out the OS platform you're using:
 # YOUR CODE HERE
