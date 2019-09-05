@@ -11,7 +11,6 @@ Check if a number is prime.
 """
 
 import sys
-import math
 
 ERROR_MSG = "Invalid arguments (expected a single natural number)"
 
@@ -49,7 +48,8 @@ try:
         If cursor becomes greater than the number's square root, then it will
         never be a multiple of it, so end the loop to skip useless iterations.
         """
-        cursor_limit = math.sqrt(num)
+        # 0.5th power of a number is the same as its square root
+        cursor_limit = num ** 0.5
 
         """
         This is a flag to check if num has been found to not be a prime.
