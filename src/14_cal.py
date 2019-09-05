@@ -29,16 +29,17 @@ START_DAY = 6  # Start weeks on Sunday
 console_args = sys.argv[1:]
 
 try:
-    if len(console_args) == 0:
+    arg_count = len(console_args)
+    if arg_count == 0:
         present_datetime = datetime.now()
         month = present_datetime.month
         year = present_datetime.year
         TextCalendar(START_DAY).prmonth(year, month)
-    elif len(console_args) == 1:
+    elif arg_count == 1:
         month = console_args[0]
         year = datetime.now().year
         TextCalendar(START_DAY).prmonth(year, int(month))
-    elif len(console_args) == 2:
+    elif arg_count == 2:
         # pylint: disable=unbalanced-tuple-unpacking
         month, year = console_args
         TextCalendar(START_DAY).prmonth(int(year), int(month))
